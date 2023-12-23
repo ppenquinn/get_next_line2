@@ -6,14 +6,14 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:16:51 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/07 15:11:29 by nappalav         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:15:57 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 5
 # endif
 
 # include <unistd.h>
@@ -27,5 +27,7 @@ typedef struct s_list
 	char			c;
 	struct s_list	*next;
 }	t_list;
+
+char	*get_next_line(int fd);
 
 #endif
