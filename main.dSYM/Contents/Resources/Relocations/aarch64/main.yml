@@ -1,0 +1,17 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/penquin/Desktop/GNL_ENDGAME/main'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000037F8, symSize: 0x88 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000037F8, symSize: 0x88 }
+  - { offsetInCU: 0x26, offset: 0xA9, size: 0x8, addend: 0x0, symName: _ft_lstnew, symObjAddr: 0x0, symBinAddr: 0x100003880, symSize: 0x11C }
+  - { offsetInCU: 0x33, offset: 0xB6, size: 0x8, addend: 0x0, symName: _get_next_line, symObjAddr: 0x4C0, symBinAddr: 0x100003D40, symSize: 0x160 }
+  - { offsetInCU: 0x58, offset: 0xDB, size: 0x8, addend: 0x0, symName: _get_next_line.mode, symObjAddr: 0x15A0, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x6D, offset: 0xF0, size: 0x8, addend: 0x0, symName: _get_next_line.lst, symObjAddr: 0x15A8, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0x102, offset: 0x185, size: 0x8, addend: 0x0, symName: _ft_lstnew, symObjAddr: 0x0, symBinAddr: 0x100003880, symSize: 0x11C }
+  - { offsetInCU: 0x162, offset: 0x1E5, size: 0x8, addend: 0x0, symName: _count_nl, symObjAddr: 0x11C, symBinAddr: 0x10000399C, symSize: 0xB0 }
+  - { offsetInCU: 0x1C2, offset: 0x245, size: 0x8, addend: 0x0, symName: _ft_lstlast, symObjAddr: 0x1CC, symBinAddr: 0x100003A4C, symSize: 0x98 }
+  - { offsetInCU: 0x206, offset: 0x289, size: 0x8, addend: 0x0, symName: _ft_readfile, symObjAddr: 0x264, symBinAddr: 0x100003AE4, symSize: 0x138 }
+  - { offsetInCU: 0x282, offset: 0x305, size: 0x8, addend: 0x0, symName: _find_nl, symObjAddr: 0x39C, symBinAddr: 0x100003C1C, symSize: 0x7C }
+  - { offsetInCU: 0x2B8, offset: 0x33B, size: 0x8, addend: 0x0, symName: _put_nl, symObjAddr: 0x418, symBinAddr: 0x100003C98, symSize: 0xA8 }
+...

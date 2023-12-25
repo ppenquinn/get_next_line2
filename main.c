@@ -6,7 +6,7 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 20:30:57 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/23 22:47:56 by nappalav         ###   ########.fr       */
+/*   Updated: 2023/12/26 02:28:42 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 int	main(void)
 {
 	int	fd;
+	char *str;
 
 	fd = open("text", O_RDONLY);
-	get_next_line(fd);
-	get_next_line(fd);
-	get_next_line(fd);
-	get_next_line(fd);
-	get_next_line(fd);
-	get_next_line(fd);
+	str = get_next_line(fd);
+	while (str)
+	{
+		printf("\nRESULT is \n>>>%s",str);
+		str = get_next_line(fd);
+	}
 	close(fd);
 	return (0);
 }
