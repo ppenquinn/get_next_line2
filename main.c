@@ -6,7 +6,7 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 20:30:57 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/26 02:28:42 by nappalav         ###   ########.fr       */
+/*   Updated: 2023/12/28 12:07:54 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int	main(void)
 	int	fd;
 	char *str;
 
-	fd = open("text", O_RDONLY);
-	str = get_next_line(fd);
+	fd = open("read_error.txt", O_RDONLY);
+ 	str = get_next_line(fd);
 	while (str)
 	{
-		printf("\nRESULT is \n>>>%s",str);
+		printf("RESULT is \n>>>%s",str);
 		str = get_next_line(fd);
 	}
+	printf("%s", str);
 	close(fd);
 	return (0);
 }
