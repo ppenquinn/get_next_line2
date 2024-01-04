@@ -6,7 +6,7 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:16:51 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/27 18:07:29 by nappalav         ###   ########.fr       */
+/*   Updated: 2024/01/05 00:47:04 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ typedef struct s_list
 }	t_list;
 
 char	*get_next_line(int fd);
-char	*put_nl(t_list **lst, size_t pos);
 ssize_t	count_nl(char *str, ssize_t *mode);
 size_t	ft_lstlast(t_list *lst, t_list **tail);
-ssize_t	ft_free(char **str);
+ssize_t	ft_free(char **str, t_list ***lst, ssize_t *mode);
 
 #endif

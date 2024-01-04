@@ -6,11 +6,38 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:58:59 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/27 18:09:57 by nappalav         ###   ########.fr       */
+/*   Updated: 2024/01/05 01:13:40 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*put_nl(t_list **lst, size_t pos, ssize_t *mode)
+{
+	char	*str;
+	t_list	*temp;
+	size_t	i;
+
+	i = 0;
+	if (!*lst)
+		return (NULL);
+	str = malloc((pos + 1) * sizeof(char));
+	if (!str)
+	{
+		ft_free(NULL, &lst, mode);
+		return (NULL);
+	}
+	while (i < pos)
+	{
+		temp = *lst;
+		str[i] = temp->c;
+		*lst = (*lst)->next;
+		free(temp);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
 
 size_t	ft_lstnew(char *str, t_list **tail, t_list ***head)
 {
@@ -51,11 +78,11 @@ ssize_t	ft_readfile(int fd, t_list	**lst, ssize_t *mode)
 	{
 		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd < 0)
-			return (ft_free(&buf));
+			return (ft_free(&buf, &lst, mode));
 		buf[rd] = 0;
 		pos += count_nl(buf, mode);
 		if (ft_lstnew(buf, &tail, &lst) == 0)
-			return (ft_free(&buf));
+			return (ft_free(&buf, &lst, mode));
 	}
 	free(buf);
 	return (pos);
@@ -68,8 +95,6 @@ char	*get_next_line(int fd)
 	ssize_t			pos;
 	char			*str;
 
-	if (mode == -1)
-		return (NULL);
 	if (!mode)
 		mode = 0;
 	if (mode == 0)
@@ -82,8 +107,10 @@ char	*get_next_line(int fd)
 		pos = ft_lstlast(lst, NULL);
 	if (mode > 0)
 		pos++;
-	str = put_nl(&lst, pos);
+	str = put_nl(&lst, pos, &mode);
 	mode--;
+	if (mode < 0)
+		mode = 0;
 	return (str);
 }
 

@@ -6,35 +6,11 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 02:43:58 by nappalav          #+#    #+#             */
-/*   Updated: 2024/01/04 23:11:11 by nappalav         ###   ########.fr       */
+/*   Updated: 2024/01/05 01:13:16 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*put_nl(t_list **lst, size_t pos)
-{
-	char	*str;
-	t_list	*temp;
-	size_t	i;
-
-	i = 0;
-	if (!*lst)
-		return (NULL);
-	str = malloc((pos + 1) * sizeof(char));
-	if (!str)
-		return (ft_free());
-	while (i < pos)
-	{
-		temp = *lst;
-		str[i] = temp->c;
-		*lst = (*lst)->next;
-		free(temp);
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
 
 ssize_t	count_nl(char *str, ssize_t *mode)
 {
@@ -90,18 +66,17 @@ ssize_t	ft_free(char **str, t_list ***lst, ssize_t *mode)
 {
 	t_list	*temp;
 
-	if (*str)
+	if (str)
 		free(*str);
 	*mode = 0;
 	if (**lst)
 	{
-		while ((**lst)->next != NULL)
+		while (**lst)
 		{
 			temp = **lst;
 			**lst = (**lst)->next;
 			free(temp);
 		}
-		free(**lst);
 	}
 	return (-1);
 }
