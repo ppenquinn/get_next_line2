@@ -6,7 +6,7 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 02:43:58 by nappalav          #+#    #+#             */
-/*   Updated: 2023/12/27 18:12:19 by nappalav         ###   ########.fr       */
+/*   Updated: 2024/01/04 23:11:11 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*put_nl(t_list **lst, size_t pos)
 		return (NULL);
 	str = malloc((pos + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
+		return (ft_free());
 	while (i < pos)
 	{
 		temp = *lst;
@@ -59,10 +59,6 @@ ssize_t	count_nl(char *str, ssize_t *mode)
 	if (cnt > 0)
 		return (pos);
 	return (idx);
-	// if (BUFFER_SIZE == 1)
-	// 	return (idx);
-	// else
-	// 	return (idx - 1);
 }
 
 size_t	ft_lstlast(t_list *lst, t_list **tail)
@@ -90,9 +86,23 @@ size_t	ft_lstlast(t_list *lst, t_list **tail)
 	return (cnt);
 }
 
-ssize_t	ft_free(char **str)
+ssize_t	ft_free(char **str, t_list ***lst, ssize_t *mode)
 {
-	free(*str);
+	t_list	*temp;
+
+	if (*str)
+		free(*str);
+	*mode = 0;
+	if (**lst)
+	{
+		while ((**lst)->next != NULL)
+		{
+			temp = **lst;
+			**lst = (**lst)->next;
+			free(temp);
+		}
+		free(**lst);
+	}
 	return (-1);
 }
 
