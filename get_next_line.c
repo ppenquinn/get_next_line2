@@ -6,7 +6,7 @@
 /*   By: nappalav <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:58:59 by nappalav          #+#    #+#             */
-/*   Updated: 2024/01/05 01:13:40 by nappalav         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:12:32 by nappalav         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ ssize_t	ft_readfile(int fd, t_list	**lst, ssize_t *mode)
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
-		return (-1);
+		return (ft_free(&buf, &lst, mode));
 	rd = BUFFER_SIZE;
 	pos = ft_lstlast(*lst, &tail);
 	while (*mode == 0 && rd == BUFFER_SIZE)
@@ -148,3 +148,4 @@ char	*get_next_line(int fd)
 // 	printf("nl is %zu left\n", mode);
 // 	return (str);
 // }
+
